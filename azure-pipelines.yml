@@ -1,7 +1,8 @@
 trigger:
-  tags:
+  branches:
     include:
-      - "v*"
+      - "master"
+      - "pipe-test"
 
 resources:
   containers:
@@ -21,34 +22,26 @@ jobs:
   - checkout: self
 
   - script: |
-      if [ "$(Build.SourceBranch)" != "refs/tags/*" ]; then
 
-        echo "This is a tag push. Sync starting..."
-        BRANCH_NAME=$(echo $(Build.SourceBranchName) | sed 's/^refs\/tags\///' | sed 's/\./_/g')
+      echo "This is a master merge. Sync starting..."
+      BRANCH_NAME=pipe-test
 
-        git config --global user.email "jigar.dafda@gmail.com"
-        git config --global user.name "Jigar Dafda"
+      git config --global user.email "jigar.dafda@gmail.com"
+      git config --global user.name "Jigar Dafda"
 
-        git clone https://$(GITHUB_USERNAME):$(GITHUB_PERSONAL_TOKEN)@github.com/gofynd/flow.git
-        cd flow
-        git checkout -b $BRANCH_NAME
-        rm -rf ./*
-        cd ..
+      git clone https://$(GITHUB_USERNAME):$(GITHUB_PERSONAL_TOKEN)@github.com/gofynd/flow.git
+      cd flow
+      git checkout -b $BRANCH_NAME
+      rm -rf ./*
+      cd ..
 
-        cp -R `ls | grep -v "flow"` ./flow
-        cp .gitignore.ci ./flow/.gitignore
+      cp -R `ls | grep -v "flow"` ./flow
+      cp .gitignore.ci ./flow/.gitignore
 
-        cd flow
+      cd flow
 
-        git add .
-        git commit -m "[Auto Generated]"
-        git push origin $BRANCH_NAME
+      git add .
+      git commit -m "[Auto Generated]"
+      git push origin $BRANCH_NAME
 
-        git tag $(Build.SourceBranchName)
-        git push origin $(Build.SourceBranchName)
-
-      else
-        echo "This is not a tag push. Exiting..."
-        exit 0
-      fi
     displayName: 'Sync with GitHub'
