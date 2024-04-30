@@ -1,14 +1,6 @@
-import Profile from './profile';
-import Cart from './cart';
+import React from "react";
+import { Route } from "react-router-dom";
 
-
-
-export default {
-	profile: {
-		component: Profile,
-	},
-	cart: {
-		component: Cart,
-	},
-
-};
+export default [
+  <Route path="raina" element={<h1 themeComponents={[]}>Custom Pages</h1>} />,
+];
