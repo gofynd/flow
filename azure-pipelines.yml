@@ -30,7 +30,7 @@ jobs:
 
       git clone https://$(GITHUB_USERNAME):$(GITHUB_PERSONAL_TOKEN)@github.com/gofynd/flow.git
       cd flow
-      git checkout -b $BRANCH_NAME
+      git checkout $BRANCH_NAME || git checkout -b $BRANCH_NAME
       rm -rf ./*
       cd ..
 
