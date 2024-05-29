@@ -8,14 +8,15 @@ import SvgWrapper from "../../components/svgWrapper/SvgWrapper";
 
 function RightSideBreakup() {
   const { fpi } = useSingleContext();
-  const { user_cart_items_count: cartItemsCount } = useGlobalStore(fpi?.getters?.CART_ITEMS_COUNT) || {};
+  const { user_cart_items_count: cartItemsCount } =
+    useGlobalStore(fpi?.getters?.CART_ITEMS_COUNT) || {};
   const bagdata = useGlobalStore(fpi?.getters?.CART_ITEMS) || {};
   const breakup = bagdata?.breakup_values?.display ?? [];
   const isLoading = bagdata?.loading ?? false;
 
   let totalVal = breakup.filter((item) => item.key == "total");
   let restVal = breakup.filter(
-    (item) => item.key !== "total" && item.value !== 0
+    (item) => item.key !== "total" && item.value !== 0,
   );
   const breakupValues = [...restVal, ...totalVal];
 
@@ -35,7 +36,7 @@ function RightSideBreakup() {
     });
     return mrp - total;
   })();
-  
+
   function getTotalDiscountWithComma() {
     return numberWithCommas(getTotalDiscount);
   }
@@ -43,7 +44,7 @@ function RightSideBreakup() {
   const currencySymbol = bagdata?.currency?.symbol || "₹";
 
   if (isLoading) {
-    return <Loader />
+    return <Loader />;
   }
   return (
     <div
@@ -72,17 +73,15 @@ function RightSideBreakup() {
           )}
         </div>
       ))}
-      {
-        getTotalDiscount > 0 && (
+      {getTotalDiscount > 0 && (
         <div className={styles.totalDiscountContainer}>
-           <SvgWrapper svgSrc={"celebration"} />
+          <SvgWrapper svgSrc={"celebration"} />
           <span className={styles.yayy}>Yayy!!! You've saved</span>
           <span className={styles.yayyTotal}>
             {currencySymbol + getTotalDiscountWithComma()}
           </span>
         </div>
-      )
-      }
+      )}
     </div>
   );
 }

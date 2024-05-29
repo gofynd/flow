@@ -17,7 +17,6 @@ const useProductDescription = (fpi, slug) => {
   const { loading: productDetailsLoading } = product_details || {};
   const { loading: productPriceBySlugLoading } = product_price_by_slug || {};
 
-
   const isLoading =
     productMetaLoading ||
     productVariantsLoading ||
@@ -64,7 +63,7 @@ const useProductDescription = (fpi, slug) => {
           if (res?.type == "pincodeDetails/rejected") {
             seterrMsg(res?.payload);
           } else {
-            seterrMsg(null)
+            seterrMsg(null);
             fpi.product.fetchProductPriceBySlug({
               slug,
               size: sizes[currentSizeIndex]?.value,

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { replaceQueryPlaceholders } from '../../../helper/utils';
-import styles from '../../../styles/categories-filter.less';
+import React, { useState, useEffect } from "react";
+import { replaceQueryPlaceholders } from "../../../helper/utils";
+import styles from "../../../styles/categories-filter.less";
 
 function RangeInputContainer({
   singleFilter,
@@ -8,10 +8,10 @@ function RangeInputContainer({
   categoryNameValue,
 }) {
   const [minVal, setMinVal] = useState(
-    singleFilter?.selected_min || singleFilter?.min
+    singleFilter?.selected_min || singleFilter?.min,
   );
   const [maxVal, setMaxVal] = useState(
-    singleFilter?.selected_max || singleFilter?.max
+    singleFilter?.selected_max || singleFilter?.max,
   );
 
   const [mounted, setIsMounted] = useState(false);
@@ -23,9 +23,9 @@ function RangeInputContainer({
         replaceQueryPlaceholders(
           singleFilter?.query_format,
           Math.floor(minVal),
-          Math.floor(maxVal)
+          Math.floor(maxVal),
         ),
-        true
+        true,
       );
     } else {
       setIsMounted(true);
@@ -46,7 +46,7 @@ function RangeInputContainer({
             </span>
           )}
           <input
-            type='number'
+            type="number"
             value={minVal}
             min={singleFilter?.min}
             max={singleFilter?.max}
@@ -61,7 +61,7 @@ function RangeInputContainer({
             </span>
           )}
           <input
-            type='number'
+            type="number"
             value={maxVal}
             min={singleFilter?.min}
             max={singleFilter?.max}

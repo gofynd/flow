@@ -41,7 +41,7 @@ const useProductListing = (fpi) => {
       const tempHistoryObject = {};
       for (let j = 0; j < selectedFiltersArr.length; j += 1) {
         const filtersValue = Object.keys(
-          selectedfilters[selectedFiltersArr[j]]
+          selectedfilters[selectedFiltersArr[j]],
         );
         if (filtersValue.length === 1) {
           tempHistoryObject[selectedFiltersArr[j]] = filtersValue[0];
@@ -80,7 +80,7 @@ const useProductListing = (fpi) => {
       const tempHistoryObject = {};
       for (let j = 0; j < selectedFiltersArr.length; j += 1) {
         const filtersValue = Object.keys(
-          selectedfilters[selectedFiltersArr[j]]
+          selectedfilters[selectedFiltersArr[j]],
         );
         if (filtersValue.length === 1) {
           tempHistoryObject[selectedFiltersArr[j]] = filtersValue[0];

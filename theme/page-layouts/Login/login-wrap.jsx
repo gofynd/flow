@@ -5,10 +5,8 @@ import styles from "./login-wrap.less";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import Loader from "../../components/loader/loader";
 
-
 function LoginWrap() {
-
-  const [isLoading,setisLoading]=useState(false)
+  const [isLoading, setisLoading] = useState(false);
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
   const [selected, setselected] = useState("password");
@@ -57,12 +55,12 @@ function LoginWrap() {
     const newURL = `/auth/forgot-password?${currentQueryParams}`;
 
     navigate(newURL);
-  }
+  };
   const sentOTP = () => {
-    setisLoading(true)
+    setisLoading(true);
     fpi.auth.sendOtp({ mobile: phNo, country_code: "91" }).then((res) => {
       if (res?.payload?.success) {
-        setisLoading(false)
+        setisLoading(false);
         setisOtpError(false);
         setotpSent(true);
         setisShowResendOtp(false);
@@ -71,7 +69,7 @@ function LoginWrap() {
         timer(res.payload.resend_timer);
       }
       if (res?.error?.message) {
-        setisLoading(false)
+        setisLoading(false);
         setisOtpError(true);
         seterrorMsg(res?.error?.message);
       }
@@ -80,12 +78,14 @@ function LoginWrap() {
 
   const verifyOtpLogin = () => {
     const body = { request_id: sendOtpResponse.request_id, otp: otp };
-    fpi.auth.signInUserWithOtp({ body, id: window.APP_DATA.applicationID }).then((res) => {
-      if (res?.error?.message) {
-        setisOtpError(true);
-        seterrorMsg(res?.error?.message);
-      }
-    });
+    fpi.auth
+      .signInUserWithOtp({ body, id: window.APP_DATA.applicationID })
+      .then((res) => {
+        if (res?.error?.message) {
+          setisOtpError(true);
+          seterrorMsg(res?.error?.message);
+        }
+      });
   };
 
   const timer = (remaining) => {
@@ -97,24 +97,23 @@ function LoginWrap() {
           clearInterval(otpTimer);
           setisShowResendOtp(true);
         }
-      }, 1000)
+      }, 1000),
     );
   };
   function loginWithPaas() {
-    setisLoading(true)
+    setisLoading(true);
     fpi.auth
       .signInUserWithPassword({
         username,
         password,
       })
       .then((res) => {
-        setisLoading(false)
+        setisLoading(false);
         if (res?.error?.message) {
           setispassError(true);
           seterrorMsg(res?.error?.message);
         }
       });
-
   }
 
   function redirectToAnotherURL(arg) {
@@ -122,13 +121,15 @@ function LoginWrap() {
     const newURL = `${arg}?${currentQueryParams}`;
 
     navigate(newURL);
-
   }
   return (
     <LoginContainer>
       <div className={styles.loginContent}>
         <ul className={styles.loginTabButtons}>
-          <li className={`${styles.tabButton} ${styles.registerButton}`} onClick={()=>redirectToAnotherURL('/auth/register')}>
+          <li
+            className={`${styles.tabButton} ${styles.registerButton}`}
+            onClick={() => redirectToAnotherURL("/auth/register")}
+          >
             <div>Register</div>
           </li>
           <li
@@ -189,7 +190,10 @@ function LoginWrap() {
                         >
                           Password
                         </label>
-                        <div className={styles.forgotPassword} onClick={goToForgotPass}>
+                        <div
+                          className={styles.forgotPassword}
+                          onClick={goToForgotPass}
+                        >
                           Forgot Password?
                         </div>
                       </div>
@@ -336,7 +340,6 @@ function LoginWrap() {
                     </button>
                   ) : (
                     <div>
-            
                       <button
                         className={`${styles.loginButton} ${styles.verifyOtpBtn} ${styles.secondaryBtn}`}
                         disabled={false}
@@ -366,7 +369,7 @@ function LoginWrap() {
           </div>
         )}
       </div>
-  {  isLoading &&  <Loader></Loader>}
+      {isLoading && <Loader></Loader>}
     </LoginContainer>
   );
 }

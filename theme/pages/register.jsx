@@ -10,9 +10,7 @@ function RegisterPage({ fpi }) {
         username: "",
         password: "",
       })
-      .then((data) => {
-
-      });
+      .then((data) => {});
   }, []);
 
   const handleLogout = React.useCallback(() => {
@@ -30,9 +28,7 @@ function RegisterPage({ fpi }) {
 
   return (
     <>
-      <RegisterWrap fpi={fpi}>
-        
-      </RegisterWrap>
+      <RegisterWrap fpi={fpi}></RegisterWrap>
     </>
   );
 }

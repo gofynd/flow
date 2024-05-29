@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 // import styles from './SvgWrapper.less';
-import { svgTitleComponentsMappings } from '../../constants/svgtitleComponentsMappings';
+import { svgTitleComponentsMappings } from "../../constants/svgtitleComponentsMappings";
 
 function SvgWrapper({ svgSrc, children, ...props }) {
   const SvgComponent = svgTitleComponentsMappings[svgSrc];
@@ -9,7 +9,6 @@ function SvgWrapper({ svgSrc, children, ...props }) {
   ) : (
     <></>
   );
-
 }
 
 export default SvgWrapper;

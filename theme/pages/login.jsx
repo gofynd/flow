@@ -19,9 +19,7 @@ function LoginPage({ fpi }) {
         username: "",
         password: "",
       })
-      .then((data) => {
-
-      });
+      .then((data) => {});
   }, []);
 
   const handleLogout = React.useCallback(() => {

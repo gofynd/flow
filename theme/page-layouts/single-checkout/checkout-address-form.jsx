@@ -7,7 +7,6 @@ const CheckoutAddressForm = ({
   showAddressType = true,
   addressitem = () => {},
 }) => {
-
   const { fpi, resetAddressState } = useSingleContext();
   const userdata = [
     {
@@ -170,9 +169,8 @@ const CheckoutAddressForm = ({
   const [checked, setChecked] = useState(false);
   const [state, setState] = useState(State);
   const [country, setCountry] = useState(Country);
-  const [selectedAddressType, setSelectedAddressType] = useState(
-    getSelectedAddress()
-  );
+  const [selectedAddressType, setSelectedAddressType] =
+    useState(getSelectedAddress());
 
   const [Userdata, setUserdata] = useState(userdata);
 
@@ -280,7 +278,6 @@ const CheckoutAddressForm = ({
       resetAddressState();
       fpi.address.getAddress();
     });
-
   };
 
   const updateAddress = () => {

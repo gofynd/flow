@@ -11,7 +11,6 @@ const useCart = (fpi) => {
   const { loading: buyNowCartItemsLoading } = buy_now_cart_items || {};
   const { loading: cartItemsCountLoading } = cart_items_count || {};
 
-
   useEffect(() => {
     fpi?.cart?.getCartItems({ b: true, i: true });
     // fpi?.cart?.getShipments({ id: cart_items?.id });
@@ -37,7 +36,7 @@ const useCart = (fpi) => {
     itemSize,
     quantity,
     itemIndex,
-    operation
+    operation,
   ) {
     if (event) {
       event.stopPropagation();
@@ -67,7 +66,6 @@ const useCart = (fpi) => {
       });
     } else if (operation === "remove") {
       fpi?.cart?.removeCartItem({ items: [itemQuery] }).then((res) => {
-
         if (res.payload.success) {
           // fpi?.cart?.getCartItems({ b: true, i: true });
           fpi.cart.getCartItemsCount();
@@ -76,8 +74,6 @@ const useCart = (fpi) => {
     }
   }
   function gotoCheckout() {
-    // console.log(cart_items?.id);
-    // navigate("/cart/checkout");
     navigate({
       pathname: "/cart/checkout",
       search: `id=${cart_items?.id}`,

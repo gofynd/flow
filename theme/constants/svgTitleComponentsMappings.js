@@ -46,7 +46,7 @@ export const svgTitleComponentsMappings = {
   wishlist: WishlistIcon,
   twitter: TwitterIcon,
   "footer-twitter": FooterTwitter,
-  'true-check':truecheck,
+  "true-check": truecheck,
   "footer-facebook": FooterFacebook,
   "footer-google": FooterGoogle,
   "footer-instagram": FooterInstagram,
@@ -67,5 +67,5 @@ export const svgTitleComponentsMappings = {
   "applied-coupon-small": appliedcoupon,
   "shipping-logo": shippinglogo,
   "cross-bold": crossbold,
-  "back":back
+  back: back,
 };

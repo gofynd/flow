@@ -34,7 +34,6 @@ const ProductDescriptionPdp = ({ fpi, slug }) => {
     const regex = /^[0-9]{0,6}$/; // Only allow numbers and maximum 6 digits
 
     if (regex.test(input)) {
-
       setCurrentPincode(input);
     }
   };
@@ -307,7 +306,7 @@ const ProductDescriptionPdp = ({ fpi, slug }) => {
                   </div>
                   {currentPincode?.length === 6 && productPriceBySlug && (
                     <div className={styles.deliveryDateContainer}>
-                     {!errMsg && <SvgWrapper svgSrc={"truck"} />}
+                      {!errMsg && <SvgWrapper svgSrc={"truck"} />}
                       <p>
                         {!errMsg ? (
                           <span>
@@ -360,7 +359,7 @@ const ProductDescriptionPdp = ({ fpi, slug }) => {
                             </li>
                           );
                         }
-                      }
+                      },
                     )}
                   </ul>
                 </div>

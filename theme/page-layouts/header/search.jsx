@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from '../../styles/search.less';
+import React from "react";
+import styles from "../../styles/search.less";
 
 function Search() {
   return (

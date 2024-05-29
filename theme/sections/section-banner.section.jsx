@@ -2,10 +2,10 @@ import React from "react";
 import { getGlobalConfigValue } from "../helper/utils";
 
 export function Component({ props, blocks, globalConfig }) {
-  console.log("globalConfig",globalConfig);
+  console.log("globalConfig", globalConfig);
   let margin_bottom = getGlobalConfigValue(
     globalConfig,
-    "section_margin_bottom"
+    "section_margin_bottom",
   );
   const { imageUrl, alt, width = 100 } = props;
   return (

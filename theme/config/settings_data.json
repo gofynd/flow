@@ -447,34 +447,34 @@
       {
         "sections": [
           {
-              "label": "",
-              "blocks": [],
-              "source": "themeBundle",
-              "predicate": {
-                  "screen": {
-                      "mobile": true,
-                      "desktop": true,
-                      "tablet": true
-                  },
-                  "user": {
-                      "authenticated": true,
-                      "anonymous": true
-                  },
-                  "route": {
-                      "selected": "none",
-                      "exact_url": ""
-                  }
+            "label": "",
+            "blocks": [],
+            "source": "themeBundle",
+            "predicate": {
+              "screen": {
+                "mobile": true,
+                "desktop": true,
+                "tablet": true
               },
-              "name": "raw-html",
-              "props": {
-                  "code": {
-                      "type": "code",
-                      "value": "<h1>\n  Welcome to skyfire\n</h1>"
-                  }
+              "user": {
+                "authenticated": true,
+                "anonymous": true
               },
-              "preset": {}
+              "route": {
+                "selected": "none",
+                "exact_url": ""
+              }
+            },
+            "name": "raw-html",
+            "props": {
+              "code": {
+                "type": "code",
+                "value": "<h1>\n  Welcome to skyfire\n</h1>"
+              }
+            },
+            "preset": {}
           }
-      ],
+        ],
         "value": "home"
       }
     ]

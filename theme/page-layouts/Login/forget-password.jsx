@@ -17,7 +17,6 @@ function ForgetPassword({ fpi }) {
   const [emailErrorMsg, setemailErrorMsg] = useState("");
   const navigate = useNavigate();
 
-
   const forgotPasswordSubmitBtnClick = () => {
     if (isShowResetButton) {
       if (validateEmailField(resetMobileEmail)) {
@@ -33,7 +32,7 @@ function ForgetPassword({ fpi }) {
             } else {
               setisSendResetPasswordSuccess(false);
               setisEmailNotExist(true);
-              setemailErrorMsg( res.error.message);
+              setemailErrorMsg(res.error.message);
             }
           });
       }
@@ -56,7 +55,6 @@ function ForgetPassword({ fpi }) {
     const newURL = `/auth/login?${currentQueryParams}`;
 
     navigate(newURL);
-
   }
 
   return (

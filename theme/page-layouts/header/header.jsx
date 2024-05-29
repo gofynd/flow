@@ -74,7 +74,10 @@ function Header({ fpi }) {
                         <div className={styles.l2NavigationContainer}>
                           {navData.sub_navigation.map((l2nav) => {
                             return (
-                              <ul className={styles.l2NavigationList} key={l2nav.display}>
+                              <ul
+                                className={styles.l2NavigationList}
+                                key={l2nav.display}
+                              >
                                 <FDKLink to={l2nav?.action?.page?.url}>
                                   <span className={styles.l2NavigationHeading}>
                                     {l2nav.display}
@@ -91,7 +94,10 @@ function Header({ fpi }) {
                                   <div className={styles.l2NavigationWrapper}>
                                     {l2nav.sub_navigation.map((l3nav) => {
                                       return (
-                                        <ul className={styles.l2NavigationList} key={l3nav.display}>
+                                        <ul
+                                          className={styles.l2NavigationList}
+                                          key={l3nav.display}
+                                        >
                                           <FDKLink
                                             to={l3nav?.action?.page?.url}
                                           >
@@ -121,7 +127,10 @@ function Header({ fpi }) {
           </div>
           <div className={styles.headerUserNavigationContainer}>
             {userNavigations?.map((svgData) => (
-              <div className={styles.userNavigationSvgContainer} key={svgData.IconName}>
+              <div
+                className={styles.userNavigationSvgContainer}
+                key={svgData.IconName}
+              >
                 <FDKLink to={svgData.link}>
                   <SvgWrapper svgSrc={svgData.IconName} />
                   {svgData?.IconName === "cart" && cartItemCount > 0 && (

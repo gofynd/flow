@@ -27,12 +27,10 @@ function OrderStatus({ fpi }) {
   const { loggedIn: isloggedIn } = useLoggedInUser(fpi);
   useEffect(() => {
     success == "true" &&
-      fpi.order
-        .getOrderById({ orderId })
-        .then((res) => {
-          setorderData(res.payload.order)
-          // fpi.cart.getCartItemsCount();
-        });
+      fpi.order.getOrderById({ orderId }).then((res) => {
+        setorderData(res.payload.order);
+        // fpi.cart.getCartItemsCount();
+      });
   }, []);
 
   function getOrderLink() {

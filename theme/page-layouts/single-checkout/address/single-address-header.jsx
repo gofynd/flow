@@ -25,7 +25,7 @@ function SinglesAddressHeader({ allAddress }) {
   const editAddress = () => {
     RemoveQuery("address_id");
     context.setshowShipment(false);
-    context.setshowPayment(false)
+    context.setshowPayment(false);
   };
   const addNewAddress = () => {
     context.setmodaltitle("Add New Address");
@@ -63,7 +63,7 @@ function SinglesAddressHeader({ allAddress }) {
             <div className={styles.headerWrapper}>
               <div className={styles.addressHeading}>Delivery Address</div>
               <div className={styles.addressString}>
-                Select delivery address 
+                Select delivery address
               </div>
             </div>
           </div>

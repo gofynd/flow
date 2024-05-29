@@ -4,7 +4,6 @@ import { useGlobalStore } from "fdk-core/utils";
 import Loader from "../components/loader/loader";
 import { getThemeGlobalConfig } from "../helper/theme";
 
-
 function Home({ numberOfSections, fpi }) {
   const page = useGlobalStore(fpi.getters.PAGE) || {};
   const THEME = useGlobalStore(fpi.getters.THEME);

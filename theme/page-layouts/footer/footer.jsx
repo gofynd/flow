@@ -21,7 +21,8 @@ const Footer = ({ fpi }) => {
               alt="Footer Logo"
             />
             <p className={styles.footerDescription}>
-              {footerProps?.footer_description || " Astra is a form of self-expression and autonomy at a particular  period and place and in a specific context, of clothing, footwear,   lifestyle, accessories, makeup, hairstyle, and body posture."}
+              {footerProps?.footer_description ||
+                " Astra is a form of self-expression and autonomy at a particular  period and place and in a specific context, of clothing, footwear,   lifestyle, accessories, makeup, hairstyle, and body posture."}
             </p>
           </div>
           <div className={styles.footerNavigationLinks}>

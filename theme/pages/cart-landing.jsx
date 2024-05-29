@@ -1,6 +1,6 @@
-import React from 'react';
-import { isLoggedIn } from '../helper/auth-guard';
-import Cart from '../page-layouts/cart/cart';
+import React from "react";
+import { isLoggedIn } from "../helper/auth-guard";
+import Cart from "../page-layouts/cart/cart";
 
 function CartPage({ fpi }) {
   return (
@@ -10,7 +10,7 @@ function CartPage({ fpi }) {
   );
 }
 
-CartPage.serverFetch = () => { };
+CartPage.serverFetch = () => {};
 
 // CartPage.authGuard = isLoggedIn;
 export default CartPage;

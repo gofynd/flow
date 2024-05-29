@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from '../../styles/image-banner.less';
+import React from "react";
+import styles from "../../styles/image-banner.less";
 
 const ImageBanner = ({ bannerImage }) => {
   return (
@@ -8,9 +8,9 @@ const ImageBanner = ({ bannerImage }) => {
         className={styles.imageContainer}
         style={{
           background: `url(${bannerImage?.value})`,
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
         }}
       ></div>
     </div>

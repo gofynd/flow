@@ -19,8 +19,7 @@ const useHeader = (fpi) => {
   const userLoggedin = useGlobalStore(fpi.getters.LOGGED_IN);
   useEffect(() => {
     fpi.cart.getCartItemsCount();
-  
-},[userLoggedin])
+  }, [userLoggedin]);
   return {
     navigation:
       CONTENT?.navigation?.items && CONTENT?.navigation?.items[0]?.navigation,

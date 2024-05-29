@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from "react";
 // import styles from './range-slider.less';
 
 const RangeSlider = ({ min, max, onChange }) => {
@@ -11,7 +11,7 @@ const RangeSlider = ({ min, max, onChange }) => {
   // Convert to percentage
   const getPercent = useCallback(
     (value) => Math.round(((value - min) / (max - min)) * 100),
-    [min, max]
+    [min, max],
   );
 
   // Set width of the range to decrease from the left side

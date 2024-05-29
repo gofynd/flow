@@ -15,9 +15,7 @@ const Cart = ({ fpi }) => {
   const [isError, setisError] = useState(false);
   const [errorMsg, seterrorMsg] = useState(false);
   const { loggedIn: isloggedIn } = useLoggedInUser(fpi);
-	const navigate = useNavigate();
-
-  
+  const navigate = useNavigate();
 
   const handlePincode = () => {
     fpi.logistic
@@ -25,7 +23,7 @@ const Cart = ({ fpi }) => {
         pincode: `${pincode}`,
       })
       .then((res) => {
-        console.log("RES",res);
+        console.log("RES", res);
         if (res.payload.success) {
           localStorage?.setItem("pincode", pincode);
           fpi?.cart?.getCartItems({ b: true, i: true, areaCode: `${pincode}` });
@@ -46,8 +44,8 @@ const Cart = ({ fpi }) => {
 
   const redirectToLogin = () => {
     console.log("here");
-    navigate('/auth/login');
-  }
+    navigate("/auth/login");
+  };
 
   const {
     cartItemCount,
@@ -154,7 +152,7 @@ const Cart = ({ fpi }) => {
                             currentSize,
                             0,
                             itemIndex,
-                            "remove"
+                            "remove",
                           )
                         }
                       >
@@ -200,7 +198,7 @@ const Cart = ({ fpi }) => {
                                   currentSize,
                                   -1,
                                   itemIndex,
-                                  "update"
+                                  "update",
                                 )
                               }
                             >
@@ -220,7 +218,7 @@ const Cart = ({ fpi }) => {
                                   currentSize,
                                   1,
                                   itemIndex,
-                                  "update"
+                                  "update",
                                 )
                               }
                             >
@@ -301,9 +299,14 @@ const Cart = ({ fpi }) => {
                 </span>
               </div>
             </div>
-            {!isloggedIn && <button className={styles.priceSummaryLoginButton}
-            onClick={redirectToLogin}
-            >LOGIN</button>}
+            {!isloggedIn && (
+              <button
+                className={styles.priceSummaryLoginButton}
+                onClick={redirectToLogin}
+              >
+                LOGIN
+              </button>
+            )}
             {!isloggedIn && (
               <button
                 className={styles.priceSummaryGuestButton}
@@ -312,12 +315,14 @@ const Cart = ({ fpi }) => {
                 CONTINUE AS GUEST
               </button>
             )}
-           {isloggedIn && <button
-              className={styles.priceSummaryLoginButton}
-              onClick={gotoCheckout}
-            >
-              checkout
-            </button>}
+            {isloggedIn && (
+              <button
+                className={styles.priceSummaryLoginButton}
+                onClick={gotoCheckout}
+              >
+                checkout
+              </button>
+            )}
           </div>
         )}
 
@@ -332,8 +337,9 @@ const Cart = ({ fpi }) => {
                 <div className={styles.sizeModalImage}>
                   <img
                     src={
-                      sizeModalItemValue?.product?.images?.length > 0 ?
-                      sizeModalItemValue?.product?.images[0]?.url:undefined
+                      sizeModalItemValue?.product?.images?.length > 0
+                        ? sizeModalItemValue?.product?.images[0]?.url
+                        : undefined
                     }
                   />
                 </div>
@@ -407,7 +413,7 @@ const Cart = ({ fpi }) => {
                           </div>
                         </div>
                       );
-                    }
+                    },
                   )}
               </div>
             </div>
@@ -429,7 +435,7 @@ const Cart = ({ fpi }) => {
                     : sizeModal?.split("_")[1],
                   cartItems[sizeModal]?.quantity,
                   itemIndex,
-                  "update"
+                  "update",
                 );
                 setCurrentSizeModalSize(null);
                 setSizeModal(null);

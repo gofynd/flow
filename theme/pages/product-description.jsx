@@ -1,7 +1,7 @@
 import React from "react";
 import ProductDescriptionPdp from "../page-layouts/pdp/product-description/product-description";
 import { useParams } from "react-router-dom";
-import {  FDKExtension } from "fdk-core/components";
+import { FDKExtension } from "fdk-core/components";
 import { getBindingFromPosition } from "../helper/utils";
 
 function ProductDescription({ fpi }) {

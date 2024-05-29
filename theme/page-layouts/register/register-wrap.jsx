@@ -49,7 +49,6 @@ function RegisterWrap({ fpi }) {
   const isEmail = platformdata?.register_required_fields?.email?.is_required; // Set your condition for email visibility
   // Set your condition for email required
 
-
   function checkObjectProperties(obj) {
     for (let prop in obj) {
       if (prop === "email" && !isEmail) {
@@ -77,7 +76,6 @@ function RegisterWrap({ fpi }) {
       return fpi.auth
         .sendOtpMobile({ body, id: window.APP_DATA.applicationID })
         .then((res) => {
-
           if (res?.payload?.success) {
             setotpSent(true);
             setisShowResendOtp(false);
@@ -96,7 +94,7 @@ function RegisterWrap({ fpi }) {
           clearInterval(mobileOtpTimer);
           setisShowResendOtpMobile(true);
         }
-      }, 1000)
+      }, 1000),
     );
   };
   const emailtimer = (remaining) => {
@@ -108,7 +106,7 @@ function RegisterWrap({ fpi }) {
           clearInterval(emailOtpTimer);
           setisShowResendOtpEmail(true);
         }
-      }, 1000)
+      }, 1000),
     );
   };
   const verifyOtpRegisterMobile = () => {
@@ -132,7 +130,6 @@ function RegisterWrap({ fpi }) {
       fpi.auth
         .verifyMobileOtp({ body, id: window.APP_DATA.applicationID })
         .then((res) => {
-
           if (res?.meta?.requestStatus == "fulfilled") {
             setisInValidMobile(false);
             setisValidMobileOtp(true);
@@ -174,7 +171,6 @@ function RegisterWrap({ fpi }) {
       fpi.auth
         .verifyEmailOtp({ body, id: window.APP_DATA.applicationID })
         .then((res) => {
-
           if (res?.meta?.requestStatus == "fulfilled") {
             if (isMobileVerified) {
               navigate("/");
@@ -231,7 +227,7 @@ function RegisterWrap({ fpi }) {
 
   const registerUser = () => {
     let body = {};
-    setisLoading(true)
+    setisLoading(true);
 
     for (const property in formData) {
       if (property != "confirmPassword")
@@ -252,13 +248,12 @@ function RegisterWrap({ fpi }) {
             id: window.APP_DATA.applicationID,
           })
           .then((res) => {
-         
             if (res?.error?.message) {
-              setisLoading(false)
+              setisLoading(false);
               setIsInValidForm(true);
               setInValidFormErrorMsg(res?.error?.message);
             } else {
-              setisLoading(false)
+              setisLoading(false);
               if (
                 res?.payload?.verify_mobile_otp ||
                 res?.payload?.verify_email_otp
@@ -287,7 +282,6 @@ function RegisterWrap({ fpi }) {
       setIsInValidForm(true);
       setInValidFormErrorMsg("Please Fill all field");
     }
-
   };
   const validateLname = (e) => {
     const value = e.target.value;
