@@ -1,4 +1,3 @@
-import FPIClient from "fdk-store";
 import React, { useState } from "react";
 import LoginContainer from "./login-container";
 import styles from "./login-wrap.less";
@@ -79,7 +78,7 @@ function LoginWrap() {
   const verifyOtpLogin = () => {
     const body = { request_id: sendOtpResponse.request_id, otp: otp };
     fpi.auth
-      .signInUserWithOtp({ body, id: window.APP_DATA.applicationID })
+      .verifyMobileOTP({ body, id: window.APP_DATA.applicationID })
       .then((res) => {
         if (res?.error?.message) {
           setisOtpError(true);

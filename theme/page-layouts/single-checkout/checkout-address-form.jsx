@@ -273,10 +273,9 @@ const CheckoutAddressForm = ({
       address_type:
         selectedAddressType == "Other" ? addressName : selectedAddressType,
     };
-
-    fpi.address.updateAddress({ body: obj }).then((res) => {
+    fpi.address.addOrUpdateAddress({ body: obj }).then((res) => {
       resetAddressState();
-      fpi.address.getAddress();
+      fpi.address.getAddresses();
     });
   };
 
@@ -301,7 +300,7 @@ const CheckoutAddressForm = ({
     delete obj._id;
     fpi.address.updateAddress({ body: obj, id: obj.id }).then(() => {
       resetAddressState();
-      fpi.address.getAddress();
+      fpi.address.getAddresses();
     });
   };
   return (

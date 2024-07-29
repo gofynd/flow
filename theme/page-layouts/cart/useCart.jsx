@@ -61,14 +61,14 @@ const useCart = (fpi) => {
       fpi?.cart?.updateCartItems({ items: [itemQuery] }).then((res) => {
         if (res.payload.success) {
           // fpi?.cart?.getCartItems({ b: true, i: true });
-          fpi.cart.getCartItemsCount();
+          fpi.cart.getItemCount();
         }
       });
     } else if (operation === "remove") {
       fpi?.cart?.removeCartItem({ items: [itemQuery] }).then((res) => {
         if (res.payload.success) {
           // fpi?.cart?.getCartItems({ b: true, i: true });
-          fpi.cart.getCartItemsCount();
+          fpi.cart.getItemCount();
         }
       });
     }

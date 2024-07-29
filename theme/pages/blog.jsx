@@ -25,7 +25,7 @@ function BlogsListPage() {
   console.log("items", items);
   useEffect(() => {
     if (!items?.length) {
-      fpi.content.fetchBlogs();
+      fpi.content.getBlogs();
     }
   }, []);
 
@@ -47,6 +47,6 @@ function BlogsListPage() {
   );
 }
 
-BlogsListPage.serverFetch = ({ fpi }) => fpi.content.fetchBlogs();
+BlogsListPage.serverFetch = ({ fpi }) => fpi.content.getBlogs();
 
 export default BlogsListPage;

@@ -23,7 +23,7 @@ function SinglePageShipment() {
     context.setshowShipment(true);
   };
   const proceedToPay = async () => {
-    await context.fpi.payment.fetchPaymentOptions({
+    await context.fpi.payment.getPaymentModeRoutes({
       amount: context.shipments.breakup_values?.raw?.total * 100,
       cartId: cart_id,
       pincode: "395008",

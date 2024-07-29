@@ -243,7 +243,7 @@ function RegisterWrap({ fpi }) {
     if (checkObjectProperties(formData)) {
       if (formData.confirmPassword.value == formData.password.value) {
         fpi.auth
-          .signUpUser({
+          .registerWithForm({
             body,
             id: window.APP_DATA.applicationID,
           })

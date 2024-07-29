@@ -74,7 +74,7 @@ function SingleShipmentContent() {
     );
   };
   const proceedToPay = async () => {
-    await fpi.payment.fetchPaymentOptions({
+    await payment.getPaymentModeRoutes({
       amount: shipments.breakup_values?.raw?.total * 100,
       cartId: cart_id,
       pincode: "395008",

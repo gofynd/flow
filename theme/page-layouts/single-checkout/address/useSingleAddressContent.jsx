@@ -39,7 +39,7 @@ const useSingleAddressContent = (allAddress) => {
         id,
       })
       .then(({ payload }) => {
-        fpi.address.getAddress();
+        fpi.address.getAddresses();
       });
   };
   const navigate = useNavigate();

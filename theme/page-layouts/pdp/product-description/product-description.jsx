@@ -3,14 +3,15 @@ import styles from "./product-description.less";
 import SvgWrapper from "../../../components/svgWrapper/SvgWrapper";
 import Loader from "../../../components/loader/loader";
 import useProductDescription from "./useProductDescription";
+import { useFPI } from "fdk-core/utils";
 
-const ProductDescriptionPdp = ({ fpi, slug }) => {
+const ProductDescriptionPdp = ({ slug }) => {
+  const fpi = useFPI();
   const [isSizeModalOpen, setSizeSideModal] = useState(false);
   const [activeTab, setActiveTab] = useState();
   const {
     productDetails,
     currentImageIndex,
-    productVariants,
     isLoading,
     productPriceBySlug,
     productMeta,
@@ -20,7 +21,7 @@ const ProductDescriptionPdp = ({ fpi, slug }) => {
     setCurrentSizeIndex,
     setCurrentPincode,
     errMsg,
-  } = useProductDescription(fpi, slug);
+  } = useProductDescription(slug);
 
   let { medias, grouped_attributes } = productDetails;
   let { sizes } = productMeta;
@@ -65,7 +66,7 @@ const ProductDescriptionPdp = ({ fpi, slug }) => {
       store_id: productPriceBySlug?.store?.uid,
     };
     fpi.cart.addCartItem({ items: [itemsQuery], buy_now: buyNow }).then(() => {
-      fpi.cart.getCartItemsCount();
+      fpi.cart.getItemCount();
     });
   }
   return (
@@ -276,12 +277,6 @@ const ProductDescriptionPdp = ({ fpi, slug }) => {
                     <h5>ADD TO CART</h5>
                   </div>
                 </div>
-                {/* <div
-                  className={styles.buyNowButtonContainer}
-                  onClick={(e) => addItemsToCart(e, true)}
-                >
-                  <h5>BUY NOW</h5>
-                </div> */}
                 <div className={styles.pinCodeEnterContainer}>
                   <p className={styles.pincodeHeading}>
                     Select delivery location
@@ -297,12 +292,6 @@ const ProductDescriptionPdp = ({ fpi, slug }) => {
                         handlePincodeInput(e.target.value);
                       }}
                     />
-                    {/* <button className={styles.changePincodeContainer}>
-                      <span className={styles.changePinCodeHeading}>
-                        Check
-                        <SvgWrapper svgSrc={"truck"} />
-                      </span>
-                    </button> */}
                   </div>
                   {currentPincode?.length === 6 && productPriceBySlug && (
                     <div className={styles.deliveryDateContainer}>

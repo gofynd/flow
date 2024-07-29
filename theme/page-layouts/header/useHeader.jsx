@@ -1,10 +1,16 @@
 import { useEffect } from "react";
-import { useGlobalStore } from "fdk-core/utils";
+import { useGlobalStore, useFPI } from "fdk-core/utils";
 
-const useHeader = (fpi) => {
+const useHeader = () => {
+  const fpi = useFPI();
+
   const CONTENT = useGlobalStore(fpi.getters.CONTENT);
 
   const CART_ITEMS_COUNT = useGlobalStore(fpi.getters.CART_ITEMS_COUNT);
+
+  const userLoggedin = useGlobalStore(fpi.getters.LOGGED_IN);
+
+  const configuration = useGlobalStore(fpi?.getters?.CONFIGURATION);
 
   const cartItemCount = CART_ITEMS_COUNT?.user_cart_items_count;
 
@@ -12,18 +18,18 @@ const useHeader = (fpi) => {
     if (
       !(CONTENT?.navigation?.items && CONTENT?.navigation?.items[0]?.navigation)
     ) {
-      fpi.content.fetchNavigation();
+      fpi.content.getNavigations();
     }
   }, []);
 
-  const userLoggedin = useGlobalStore(fpi.getters.LOGGED_IN);
   useEffect(() => {
-    fpi.cart.getCartItemsCount();
+    fpi.cart.getItemCount();
   }, [userLoggedin]);
+
   return {
-    navigation:
-      CONTENT?.navigation?.items && CONTENT?.navigation?.items[0]?.navigation,
+    navigation: CONTENT?.navigation?.items?.[0]?.navigation,
     cartItemCount,
+    configuration,
   };
 };
 

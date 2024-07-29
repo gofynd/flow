@@ -208,7 +208,7 @@ ProductListing.serverFetch = async ({ fpi, router }) => {
     defaultQuery.sortOn = queries.sortOn;
   }
   defaultQuery = { ...defaultQuery, ...queries };
-  return fpi.products.fetchProductListing(defaultQuery);
+  return fpi.catalog.fetchProductListing(defaultQuery);
 };
 
 export default ProductListing;

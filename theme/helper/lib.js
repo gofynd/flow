@@ -2,12 +2,12 @@ import { getPageSlug } from "fdk-core/utils";
 
 export async function globalDataResolver({ fpi, applicationID }) {
   return Promise.all([
-    fpi.configuration.fetchApplication(),
-    fpi.content.fetchLandingPage(),
-    fpi.content.fetchAppSeo(),
-    fpi.content?.fetchTags(),
-    fpi.content?.fetchNavigation({}),
-    fpi.auth?.fetchPlatformData({ id: applicationID }),
+    fpi.configuration.getApplication(),
+    fpi.content.getLandingPage(),
+    fpi.content.getSEOConfiguration(),
+    fpi.content?.getTags(),
+    fpi.content?.getNavigations({}),
+    fpi.auth?.getPlatformConfig({ id: applicationID }),
   ]).catch(console.log);
 }
 

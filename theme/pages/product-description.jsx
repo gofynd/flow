@@ -4,18 +4,15 @@ import { useParams } from "react-router-dom";
 import { FDKExtension } from "fdk-core/components";
 import { getBindingFromPosition } from "../helper/utils";
 
-function ProductDescription({ fpi }) {
+function ProductDescription() {
   const { slug } = useParams();
 
   return (
     <>
-      <ProductDescriptionPdp fpi={fpi} slug={slug} />;
+      <ProductDescriptionPdp slug={slug} />;
       <FDKExtension
         binding={getBindingFromPosition(fpi, "below_price_component")}
       />
-      {/* <FDKExtension
-        binding={getBindingFromPosition(fpi, "above_price_breakup")}
-      /> */}
     </>
   );
 }
@@ -59,17 +56,13 @@ export const settings = JSON.stringify({
 
 ProductDescription.serverFetch = ({ fpi, router }) => {
   const slug = router?.params?.slug;
-  const dataPromises = [
-    // fpi.pageConfig.fetchPageConfig('PDP'),
-  ];
+  const dataPromises = [];
   if (slug) {
-    dataPromises.push(fpi.product.fetchProductBySlug({ slug }));
-    dataPromises.push(fpi.product.fetchProductMeta({ slug: slug }));
+    dataPromises.push(fpi.catalog.fetchProductBySlug({ slug }));
+    dataPromises.push(fpi.catalog.getProductSizesBySlug({ slug: slug }));
   }
 
   return Promise.all(dataPromises);
 };
-
-// ProductDescription.authGuard = isLoggedIn;
 
 export default ProductDescription;

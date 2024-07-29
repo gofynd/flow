@@ -64,7 +64,7 @@ const useProductListing = (fpi) => {
       if (Object.keys(tempHistoryObject).length > 0) {
         query.f = tempHistoryObject;
       }
-      fpi.products.fetchProductListing(query);
+      fpi.catalog.fetchProductListing(query);
     } else if (!isProductListingMounted) {
       isProductListingMounted = true;
     }
@@ -103,7 +103,7 @@ const useProductListing = (fpi) => {
       if (Object.keys(tempHistoryObject).length > 0) {
         query.f = tempHistoryObject;
       }
-      fpi.products.fetchProductListing(query);
+      fpi.catalog.fetchProductListing(query);
     }
   }, []);
 

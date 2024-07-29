@@ -12,7 +12,7 @@ function BlogPage() {
 
   useEffect(() => {
     if (blog?.slug !== slug) {
-      fpi.content.fetchBlogData({ slug });
+      fpi.content.getBlog({ slug });
     }
   }, [slug]);
 
@@ -55,7 +55,7 @@ function BlogPage() {
 
 BlogPage.serverFetch = ({ router, fpi }) => {
   const { slug } = router?.params ?? {};
-  return fpi.content.fetchBlogData({ slug });
+  return fpi.content.getBlog({ slug });
 };
 
 export default BlogPage;
