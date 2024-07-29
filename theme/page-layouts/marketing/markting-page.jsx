@@ -4,7 +4,7 @@ import { useGlobalStore } from "fdk-core/utils";
 import { useParams } from "react-router-dom";
 import EmptyState from "./EmptyState";
 import { MarkdownRenderer } from "./MarkdownRenderer";
-import { HTMLContent } from "./HTMLContent";
+import { HTMLContent } from "fdk-core/components";
 import { useFPI } from "fdk-core/utils";
 
 function MarketingPage() {
