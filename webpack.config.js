@@ -1,5 +1,12 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
+const NodeJSPolyfill = require('./plugin');
+const { readFileSync } = require('node:fs');
+
+
+const polyfillCodePath = path.join(__dirname, './polyfill.js');
+const polyfillCode = readFileSync(polyfillCodePath, { encoding: 'utf-8'});
+
 
 module.exports = (configOptions) => {
   const {
@@ -166,6 +173,9 @@ module.exports = (configOptions) => {
       new MiniCssExtractPlugin({
         filename: isLocal ? "[name].css" : "[name].[contenthash].css",
       }),
+      new NodeJSPolyfill({
+        snippet: polyfillCode
+      })
     ],
   };
 };
