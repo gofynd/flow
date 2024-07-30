@@ -9,7 +9,6 @@ const NodeJSPolyfill = require('./plugin');
 module.exports = (configOptions) => {
   const {
     isLocal,
-    isHMREnabled,
     context,
     assetNormalizedBasePath,
     imageCDNNormalizedBasePath,
@@ -42,11 +41,6 @@ module.exports = (configOptions) => {
                   "@babel/preset-react",
                   "@babel/preset-typescript",
                 ],
-                plugins: [
-                  ...(isLocal && isHMREnabled
-                    ? [require.resolve("react-refresh/babel")]
-                    : []),
-                ],
               },
             },
           ],
@@ -67,11 +61,6 @@ module.exports = (configOptions) => {
                     },
                   ],
                   "@babel/preset-react",
-                ],
-                plugins: [
-                  ...(isLocal && isHMREnabled
-                    ? [require.resolve("react-refresh/babel")]
-                    : []),
                 ],
               },
             },
