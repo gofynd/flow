@@ -1,8 +1,12 @@
 const { sources } = require('webpack');
+const path = require("path");
+
+const polyfillCodePath = path.join(__dirname, './polyfill.js');
+const polyfillCode = readFileSync(polyfillCodePath, { encoding: 'utf-8'});
 
 class NodeJSPolyfill {
-  constructor(options) {
-    this.snippet = options.snippet || '';
+  constructor(options = {}) {
+    this.snippet = options.snippet || polyfillCode;
   }
 
   apply(compiler) {
