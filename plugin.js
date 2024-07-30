@@ -19,7 +19,6 @@ class NodeJSPolyfill {
         },
         (assets) => {
           for (const assetName in assets) {
-            console.log({assetName})
             if (assetName.endsWith('.js')) {
               const originalSource = assets[assetName].source();
               const modifiedSource = `${this.snippet}\n${originalSource}`;
