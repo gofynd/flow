@@ -1,5 +1,6 @@
 const { sources } = require('webpack');
 const path = require("path");
+const { readFileSync } = require('node:fs');
 
 const polyfillCodePath = path.join(__dirname, './polyfill.js');
 const polyfillCode = readFileSync(polyfillCodePath, { encoding: 'utf-8'});
