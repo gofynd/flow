@@ -1,6 +1,6 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
-
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const { Overlay } = require('react-hydration-overlay');
 
 const NodeJSPolyfill = require('./plugin');
@@ -165,5 +165,11 @@ module.exports = (configOptions) => {
       ] : []),
       new NodeJSPolyfill()
     ],
+    optimization: {
+      minimizer: [
+        `...`,
+        new CssMinimizerPlugin(),
+      ],
+    },
   };
 };
