@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import { useGlobalStore } from "fdk-core/utils";
 import { useSingleContext } from "../single-page-context";
 const PaymentSDK = ({ sdks, setsdkLoaded }) => {
-  
   const counter = useRef(0);
   const parentElm = useRef(null);
   const { fpi } = useSingleContext();
@@ -89,8 +88,7 @@ const PaymentSDK = ({ sdks, setsdkLoaded }) => {
 
   const handleEvent = (eventName, eventData) => {
     // Handle the event in your parent component or wherever needed
-    setsdkLoaded(eventData)
-
+    setsdkLoaded(eventData);
   };
 
   return (

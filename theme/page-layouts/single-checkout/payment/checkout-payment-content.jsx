@@ -180,7 +180,7 @@ function CheckoutPaymentContent() {
     initiateMask();
   };
   const selectedTabData = paymentOption.payment_options.payment_option.find(
-    (optn) => optn.name == selectedTab
+    (optn) => optn.name == selectedTab,
   );
   const getCurrencySymbol = (() => {
     return bagdata?.currency?.symbol || "₹";
@@ -298,7 +298,7 @@ function CheckoutPaymentContent() {
   };
 
   const selectedNewCardData = paymentOption.payment_options.payment_option.find(
-    (optn) => optn.name == "CARD"
+    (optn) => optn.name == "CARD",
   );
 
   function addParamsToLocation(params) {
@@ -317,7 +317,7 @@ function CheckoutPaymentContent() {
               encodeURIComponent(key) + "=" + encodeURIComponent(params[key])
             );
           })
-          .join("&")
+          .join("&"),
     );
   }
   function getQueryParams() {
@@ -330,12 +330,11 @@ function CheckoutPaymentContent() {
     return queryParams;
   }
   const selectedUPIData = paymentOption.payment_options.payment_option.filter(
-    (optn) => optn.name == "UPI"
+    (optn) => optn.name == "UPI",
   )[0]?.list[0];
   const proceedToPay = (mode, codData) => {
     // Implement the logic to proceed with the payment
     if (mode == "newCARD") {
- 
       let valid = isCardDetailsValid();
       let cardObj;
       if (!valid) {
@@ -379,9 +378,7 @@ function CheckoutPaymentContent() {
               selectedNewCardData.aggregator_name
             ],
         })
-        .then((res) => {
-
-        });
+        .then((res) => {});
     } else if (mode == "CARD") {
       if (
         !selectedCard.compliant_with_tokenisation_guidelines &&
@@ -433,7 +430,7 @@ function CheckoutPaymentContent() {
         id: cart_id,
         is_redirection: false,
       };
-      setisLoading(true)
+      setisLoading(true);
       let confirmedPayment = fpi.payment.confirmPayment(payload);
       addParamsToLocation({
         ...getQueryParams(),
@@ -464,7 +461,7 @@ function CheckoutPaymentContent() {
         id: cart_id,
         is_redirection: false,
       };
-      setisLoading(true)
+      setisLoading(true);
       let confirmedPayment = fpi.payment.confirmPayment(payload);
       addParamsToLocation({
         ...getQueryParams(),
@@ -505,7 +502,7 @@ function CheckoutPaymentContent() {
         id: cart_id,
         is_redirection: false,
       };
-      setisLoading(true)
+      setisLoading(true);
       let confirmedPayment = fpi.payment.confirmPayment(payload);
 
       addParamsToLocation({
@@ -541,7 +538,7 @@ function CheckoutPaymentContent() {
         id: cart_id,
         is_redirection: false,
       };
-      setisLoading(true)
+      setisLoading(true);
       let confirmedPayment = fpi.payment.confirmPayment(payload);
       addParamsToLocation({
         ...getQueryParams(),
@@ -567,7 +564,7 @@ function CheckoutPaymentContent() {
         id: cart_id,
         is_redirection: false,
       };
-      setisLoading(true)
+      setisLoading(true);
       let confirmedPayment = fpi.payment.confirmPayment(payload);
       addParamsToLocation({
         ...getQueryParams(),
@@ -596,7 +593,7 @@ function CheckoutPaymentContent() {
         id: cart_id,
         is_redirection: false,
       };
-      setisLoading(true)
+      setisLoading(true);
       let confirmedPayment = fpi.payment.confirmPayment(payload);
       addParamsToLocation({
         ...getQueryParams(),
@@ -623,7 +620,7 @@ function CheckoutPaymentContent() {
     // Implement the logic to calculate the total value
 
     let totalObj = bagdata?.breakup_values?.display?.find(
-      (item) => item.key == "total"
+      (item) => item.key == "total",
     );
     return numberWithCommas(totalObj?.value);
   };
@@ -686,7 +683,7 @@ function CheckoutPaymentContent() {
     let orderedOptions = orderBy(
       paymentOption.payment_options?.payment_option,
       "display_priority",
-      "asc"
+      "asc",
     );
 
     orderedOptions?.forEach((optn) => {
@@ -852,7 +849,7 @@ function CheckoutPaymentContent() {
                               /> */}
                               <div
                                 className={`${styles.cardItem} ${getCardBorder(
-                                  card
+                                  card,
                                 )}`}
                               >
                                 <div className={styles.cardDetailsWrapper}>
@@ -878,7 +875,7 @@ function CheckoutPaymentContent() {
                                         <div className={styles.number}>
                                           <span>****</span>
                                           {getTrimmedCardNumber(
-                                            card.card_number
+                                            card.card_number,
                                           )}
                                         </div>
                                         <div className={styles.logo}>
@@ -993,7 +990,7 @@ function CheckoutPaymentContent() {
                     >
                       <div className={styles.addCardHeader}>
                         <button onClick={hideNewCard}>
-                          <SvgWrapper svgSrc={'back'}></SvgWrapper>
+                          <SvgWrapper svgSrc={"back"}></SvgWrapper>
                         </button>
                         <div className={styles.newCardHeaderText}>
                           Pay Using Credit/Debit Card
@@ -1272,7 +1269,10 @@ function CheckoutPaymentContent() {
                             onChange={selectBank}
                           >
                             {restBanks.map((nb, index) => (
-                              <option key={nb.display_name} value={JSON.stringify(nb)}>
+                              <option
+                                key={nb.display_name}
+                                value={JSON.stringify(nb)}
+                              >
                                 {nb.display_name}
                               </option>
                             ))}
@@ -1364,7 +1364,7 @@ function CheckoutPaymentContent() {
                                 </label>
                               )}
                             </>
-                          )
+                          ),
                         )}
                       </div>
                       <div className={styles.payLaterPay}>

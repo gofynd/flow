@@ -17,8 +17,7 @@ function LoginContainer({ children }) {
           </div>
         </div>
 
-          {children}
-
+        {children}
       </div>
     </div>
   );

@@ -7,7 +7,6 @@ const CheckoutAddressForm = ({
   showAddressType = true,
   addressitem = () => {},
 }) => {
-
   const { fpi, resetAddressState } = useSingleContext();
   const userdata = [
     {
@@ -170,9 +169,8 @@ const CheckoutAddressForm = ({
   const [checked, setChecked] = useState(false);
   const [state, setState] = useState(State);
   const [country, setCountry] = useState(Country);
-  const [selectedAddressType, setSelectedAddressType] = useState(
-    getSelectedAddress()
-  );
+  const [selectedAddressType, setSelectedAddressType] =
+    useState(getSelectedAddress());
 
   const [Userdata, setUserdata] = useState(userdata);
 
@@ -275,12 +273,10 @@ const CheckoutAddressForm = ({
       address_type:
         selectedAddressType == "Other" ? addressName : selectedAddressType,
     };
-
-    fpi.address.updateAddress({ body: obj }).then((res) => {
+    fpi.address.addOrUpdateAddress({ body: obj }).then((res) => {
       resetAddressState();
-      fpi.address.getAddress();
+      fpi.address.getAddresses();
     });
-
   };
 
   const updateAddress = () => {
@@ -304,7 +300,7 @@ const CheckoutAddressForm = ({
     delete obj._id;
     fpi.address.updateAddress({ body: obj, id: obj.id }).then(() => {
       resetAddressState();
-      fpi.address.getAddress();
+      fpi.address.getAddresses();
     });
   };
   return (

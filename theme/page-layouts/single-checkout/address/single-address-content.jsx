@@ -20,7 +20,6 @@ function SingleAddressContent({ allAddress, addressLoading }) {
     isLoading,
   } = useSingleAddressContent(allAddress);
 
-
   return (
     <>
       {allAddress && allAddress.length && !isLoading ? (
@@ -109,7 +108,7 @@ function SingleAddressContent({ allAddress, addressLoading }) {
             ? getOtherAdd.map((item, index) => {
                 return (
                   <div
-                  key={item.id}
+                    key={item.id}
                     className={styles.addressContent}
                     onClick={() => {
                       setselectedAddId(item.id);
@@ -183,7 +182,10 @@ function SingleAddressContent({ allAddress, addressLoading }) {
           {addressLoading || isLoading ? (
             <Loader></Loader>
           ) : (
-            <div className={styles.addressContentConitainer} style={{textAlign:"center", color:'var(--textLabel)'}}>
+            <div
+              className={styles.addressContentConitainer}
+              style={{ textAlign: "center", color: "var(--textLabel)" }}
+            >
               {" "}
               No Address Found, Please Add Address
             </div>

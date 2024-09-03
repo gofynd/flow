@@ -5,7 +5,7 @@ import { getGlobalConfigValue } from "../helper/utils";
 export function Component({ props, globalConfig }) {
   let margin_bottom = getGlobalConfigValue(
     globalConfig,
-    "section_margin_bottom"
+    "section_margin_bottom",
   );
   const { label, url, target } = props;
   return target.value === "_blank" ? (

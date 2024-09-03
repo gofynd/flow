@@ -1,14 +1,11 @@
 import React from "react";
 import styles from "../../styles/footer.less";
-import { useGlobalStore } from "fdk-core/utils";
 import { FDKLink } from "fdk-core/components";
 import useFooter from "./useFooter";
 
-const Footer = ({ fpi }) => {
-  const configuration = useGlobalStore(fpi?.getters?.CONFIGURATION);
-
-  const { globalConfig, navigation, appInfo, support, footerProps } =
-    useFooter(fpi);
+const Footer = () => {
+  const { navigation, appInfo, support, footerProps, configuration } =
+    useFooter();
 
   return (
     <div className={styles.footerContainer}>
@@ -21,7 +18,8 @@ const Footer = ({ fpi }) => {
               alt="Footer Logo"
             />
             <p className={styles.footerDescription}>
-              {footerProps?.footer_description || " Astra is a form of self-expression and autonomy at a particular  period and place and in a specific context, of clothing, footwear,   lifestyle, accessories, makeup, hairstyle, and body posture."}
+              {footerProps?.footer_description ||
+                " Astra is a form of self-expression and autonomy at a particular  period and place and in a specific context, of clothing, footwear,   lifestyle, accessories, makeup, hairstyle, and body posture."}
             </p>
           </div>
           <div className={styles.footerNavigationLinks}>
@@ -107,9 +105,8 @@ const Footer = ({ fpi }) => {
 
 Footer.serverFetch = ({ fpi }) =>
   Promise.all([
-    fpi.content.fetchNavigation(),
-    fpi.content.fetchSupportInformation(),
-    fpi.configuration.fetchContactInfo(),
+    fpi.content.getSupportInformation(),
+    fpi.configuration.getContactInfo(),
   ]);
 
 export default Footer;

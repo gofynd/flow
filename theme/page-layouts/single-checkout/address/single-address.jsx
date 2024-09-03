@@ -9,12 +9,15 @@ import useSingleAddress from "./useSingleAddress";
 
 function Singleaddress() {
   const context = useSingleContext();
-  const { allAddress,addressLoading } = useSingleAddress();
+  const { allAddress, addressLoading } = useSingleAddress();
   return (
     <div className={styles.addressContainerLeft}>
       <SinglesAddressHeader allAddress={allAddress}></SinglesAddressHeader>
-      {context.showShipment ||context.showPayment  ? null : (
-        <SingleAddressContent allAddress={allAddress} addressLoading={addressLoading}></SingleAddressContent>
+      {context.showShipment || context.showPayment ? null : (
+        <SingleAddressContent
+          allAddress={allAddress}
+          addressLoading={addressLoading}
+        ></SingleAddressContent>
       )}
     </div>
   );

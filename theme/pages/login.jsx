@@ -12,28 +12,9 @@ function LoginPage({ fpi }) {
 
   const loggedIn = useGlobalStore(fpi.getters.LOGGED_IN);
 
-  const handleLogin = React.useCallback(() => {
-    fpi.auth
-      .signInUserWithPassword({
-        is_redirection: true,
-        username: "",
-        password: "",
-      })
-      .then((data) => {
-
-      });
-  }, []);
-
-  const handleLogout = React.useCallback(() => {
-    fpi.auth.signOutUser().then((data) => {
-      alert("user logged out");
-    });
-  }, []);
-
   if (loggedIn) {
     if (isRunningOnClient()) {
-      return <Navigate to={redirectUrl} />;
-      // window.location.href=redirectUrl
+      return (window.location.href = redirectUrl);
     }
     return null;
   }
@@ -41,8 +22,6 @@ function LoginPage({ fpi }) {
   return (
     <>
       <LoginWrap></LoginWrap>
-      {/* <button onClick={handleLogin}>Login</button>
-      <button onClick={handleLogout}>Log out</button> */}
     </>
   );
 }

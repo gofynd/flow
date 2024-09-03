@@ -1,19 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { SectionRenderer } from "fdk-core/components";
-import { useGlobalStore } from "fdk-core/utils";
+import { useGlobalStore, useFPI } from "fdk-core/utils";
 import Loader from "../components/loader/loader";
 import { getThemeGlobalConfig } from "../helper/theme";
 
-
-function Home({ numberOfSections, fpi }) {
+function Home() {
+  const fpi = useFPI();
   const page = useGlobalStore(fpi.getters.PAGE) || {};
-  const THEME = useGlobalStore(fpi.getters.THEME);
-  const globalConfig = getThemeGlobalConfig(THEME?.config);
-  const { sections = [], loading, error } = page || {};
-  useEffect(() => {
-    fpi.collection.fetchCollection({}).then((e) => console.log(e));
-  }, []);
+  const THEME = fpi.getters.THEME(fpi.store.getState());
 
+  const globalConfig = React.useMemo(
+    () => getThemeGlobalConfig(THEME?.config),
+    [],
+  );
+
+  const { sections = [], loading, error } = page || {};
   if (error) {
     return (
       <>
@@ -27,11 +28,7 @@ function Home({ numberOfSections, fpi }) {
   }
   return (
     <div className="wrapper">
-      <SectionRenderer
-        sections={sections}
-        fpi={fpi}
-        globalConfig={globalConfig}
-      />
+      <SectionRenderer sections={sections} globalConfig={globalConfig} />
     </div>
   );
 }
@@ -81,7 +78,5 @@ export const sections = JSON.stringify([
     },
   },
 ]);
-
-Home.serverFetch = ({ fpi }) => fpi.content.fetchNavigation();
 
 export default Home;

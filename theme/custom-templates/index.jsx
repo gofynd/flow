@@ -1,14 +1,9 @@
-import Profile from './profile';
-import Cart from './cart';
+import React from "react";
+import { Route } from "react-router-dom";
+import Cart from "./cart";
+import Profile from "./profile";
 
-
-
-export default {
-	profile: {
-		component: Profile,
-	},
-	cart: {
-		component: Cart,
-	},
-
-};
+export default [
+  <Route path="cart" element={<Cart></Cart>} />,
+  <Route path="profile" element={<Profile></Profile>} />,
+];

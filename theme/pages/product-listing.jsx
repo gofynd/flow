@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import CategoriesFilter from '../components/categories-filter/categories-filter';
-import SvgWrapper from '../components/svgWrapper/SvgWrapper';
-import Loader from '../components/loader/loader';
-import useProductListing from '../page-layouts/plp/useProductListing';
-import styles from '../styles/product-listing.less';
-import PageNotFound from '../components/page-not-found/page-not-found';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import CategoriesFilter from "../components/categories-filter/categories-filter";
+import SvgWrapper from "../components/svgWrapper/SvgWrapper";
+import Loader from "../components/loader/loader";
+import useProductListing from "../page-layouts/plp/useProductListing";
+import styles from "../styles/product-listing.less";
+import PageNotFound from "../components/page-not-found/page-not-found";
 
 const ProductListing = ({ fpi }) => {
   const {
@@ -19,7 +19,7 @@ const ProductListing = ({ fpi }) => {
   } = useProductListing(fpi);
   const router = useNavigate();
   const [sortOnOpen, setSortOnOpen] = useState(false);
-  const [currentGrid, setCurrentGrid] = useState('fourgrid');
+  const [currentGrid, setCurrentGrid] = useState("fourgrid");
 
   const { filters, sort_on, page, items } = product_lists?.data || {};
 
@@ -27,7 +27,7 @@ const ProductListing = ({ fpi }) => {
     if (sort_on && sort_on.length > 0) {
       if (!currentSort) {
         setCurrentSort(sort_on[0]);
-      } else if (typeof currentSort === 'string') {
+      } else if (typeof currentSort === "string") {
         const sortOnValue = sort_on.find((el) => el.value === currentSort);
       }
     }
@@ -37,7 +37,7 @@ const ProductListing = ({ fpi }) => {
       <div className={styles.productListingContainer}>
         <div className={styles.listDataContainer}>
           <div className={styles.categoriesListContainer}>
-            {filters?.map((singleFilter,index) => {
+            {filters?.map((singleFilter, index) => {
               return (
                 <CategoriesFilter
                   key={index}
@@ -69,10 +69,10 @@ const ProductListing = ({ fpi }) => {
                       >
                         {currentSort?.display}
                         <SvgWrapper
-                          svgSrc={'arrow-down'}
+                          svgSrc={"arrow-down"}
                           className={styles.filterSvg}
                           style={{
-                            transform: sortOnOpen ? 'scale(1,-1)' : 'scale(1)',
+                            transform: sortOnOpen ? "scale(1,-1)" : "scale(1)",
                           }}
                         />
                       </span>
@@ -92,9 +92,9 @@ const ProductListing = ({ fpi }) => {
                             setSortOnOpen(!sortOnOpen);
                             setCurrentSort(singleSort);
                             updateSelectedFilters(
-                              'sortOn',
+                              "sortOn",
                               singleSort?.value,
-                              true
+                              true,
                             );
                           }}
                         >
@@ -106,30 +106,30 @@ const ProductListing = ({ fpi }) => {
                 </div>
                 <div
                   className={`${
-                    currentGrid === 'twogrid' && styles.gridSvgContainer
+                    currentGrid === "twogrid" && styles.gridSvgContainer
                   }`}
-                  onClick={() => setCurrentGrid('twogrid')}
+                  onClick={() => setCurrentGrid("twogrid")}
                 >
-                  <SvgWrapper svgSrc={'twogrid'} />
+                  <SvgWrapper svgSrc={"twogrid"} />
                 </div>
                 <div
                   className={`${
-                    currentGrid !== 'twogrid' && styles.gridSvgContainer
+                    currentGrid !== "twogrid" && styles.gridSvgContainer
                   }`}
-                  onClick={() => setCurrentGrid('fourgrid')}
+                  onClick={() => setCurrentGrid("fourgrid")}
                 >
-                  <SvgWrapper svgSrc={'fourgrid'} />
+                  <SvgWrapper svgSrc={"fourgrid"} />
                 </div>
               </div>
             </div>
             <div className={styles.productListingContainer}>
-              {items?.length > 0 ?
+              {items?.length > 0 ? (
                 items.map((singleProduct) => {
                   return (
                     <div
                       key={singleProduct.slug}
                       className={`${
-                        currentGrid === 'twogrid'
+                        currentGrid === "twogrid"
                           ? styles.twoProducts
                           : styles.fourProducts
                       }`}
@@ -139,9 +139,9 @@ const ProductListing = ({ fpi }) => {
                         src={
                           (singleProduct?.medias?.length > 0 &&
                             singleProduct?.medias[0]?.url) ||
-                          'https://cdn.pixelbin.io/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/resize-w:550/spykar/RS13/1/3Vf6OTdx2y-_ZCRDnuJ_-Replica-Shoes-9.jpeg?dpr=2'
+                          "https://cdn.pixelbin.io/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/resize-w:550/spykar/RS13/1/3Vf6OTdx2y-_ZCRDnuJ_-Replica-Shoes-9.jpeg?dpr=2"
                         }
-                        alt='productImage'
+                        alt="productImage"
                       />
                       <h3 className={styles.productHeading}>
                         {singleProduct?.name}
@@ -159,27 +159,30 @@ const ProductListing = ({ fpi }) => {
                       </div>
                     </div>
                   );
-                }):<PageNotFound title={'No Products Found'}></PageNotFound>}
+                })
+              ) : (
+                <PageNotFound title={"No Products Found"}></PageNotFound>
+              )}
             </div>
             <div className={styles.paginationListingContainer}>
               <SvgWrapper
-                svgSrc={'arrow-left'}
+                svgSrc={"arrow-left"}
                 className={styles.paginationArrow}
                 onClick={() => {
                   if (page?.has_previous) {
                     setPageNo(pageNo - 1);
-                    updateSelectedFilters('page_no', pageNo - 1, true);
+                    updateSelectedFilters("page_no", pageNo - 1, true);
                   }
                 }}
               />
               <div className={styles.pageCount}>{pageNo}</div>
               <SvgWrapper
-                svgSrc={'arrow-right'}
+                svgSrc={"arrow-right"}
                 className={styles.paginationArrow}
                 onClick={() => {
                   if (page?.has_next) {
                     setPageNo(pageNo + 1);
-                    updateSelectedFilters('page_no', pageNo + 1, true);
+                    updateSelectedFilters("page_no", pageNo + 1, true);
                   }
                 }}
               />
@@ -205,7 +208,7 @@ ProductListing.serverFetch = async ({ fpi, router }) => {
     defaultQuery.sortOn = queries.sortOn;
   }
   defaultQuery = { ...defaultQuery, ...queries };
-  return fpi.products.fetchProductListing(defaultQuery);
+  return fpi.catalog.fetchProductListing(defaultQuery);
 };
 
 export default ProductListing;

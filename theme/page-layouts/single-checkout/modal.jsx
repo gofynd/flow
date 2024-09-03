@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import styles from "./modal.less";
 import SvgWrapper from "../../components/svgWrapper/SvgWrapper";
 
-
 const Modal = ({ isOpen, title, onCloseDialog, children }) => {
   const modalContainerRef = useRef(null);
   const [isMounted, setIsMounted] = useState(false);
@@ -47,29 +46,24 @@ const Modal = ({ isOpen, title, onCloseDialog, children }) => {
   }, []);
 
   return isOpen ? (
-<div
-  className={`${styles.modal} ${
-    isMounted ? styles.slideInModal : ""
-  } `}
->
-  <div
-    className={`${styles.modalContainerCss} ${
-      isMounted ? styles.slideIn : ""
-    }`}
-    ref={modalContainerRef}
-  >
-    <div className={styles.modalHeader}>
-      <div className={styles.modalTitle}>{title}</div>
-      <div className={styles.cross} onClick={closeDialog}>
-        <SvgWrapper svgSrc="cross-bold"></SvgWrapper>
+    <div className={`${styles.modal} ${isMounted ? styles.slideInModal : ""} `}>
+      <div
+        className={`${styles.modalContainerCss} ${
+          isMounted ? styles.slideIn : ""
+        }`}
+        ref={modalContainerRef}
+      >
+        <div className={styles.modalHeader}>
+          <div className={styles.modalTitle}>{title}</div>
+          <div className={styles.cross} onClick={closeDialog}>
+            <SvgWrapper svgSrc="cross-bold"></SvgWrapper>
+          </div>
+        </div>
+        <div className={styles.modalBody} style={{ marginTop: "18px" }}>
+          {children}
+        </div>
       </div>
     </div>
-    <div className={styles.modalBody} style={{ marginTop: "18px" }}>
-      {children}
-    </div>
-  </div>
-</div>
-
   ) : null;
 };
 

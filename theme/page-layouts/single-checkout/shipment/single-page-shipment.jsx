@@ -3,10 +3,9 @@ import SvgWrapper from "../../../components/svgWrapper/SvgWrapper";
 import { useSingleContext } from "../single-page-context";
 import styles from "./single-page-shipment.less";
 import SingleShipmentContent from "./single-shipment-content";
-import { useNavigate,useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 function SinglePageShipment() {
-
   const context = useSingleContext();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -24,11 +23,11 @@ function SinglePageShipment() {
     context.setshowShipment(true);
   };
   const proceedToPay = async () => {
-    await context.fpi.payment.fetchPaymentOptions({
-      amount:context.shipments.breakup_values?.raw?.total * 100 ,
+    await context.fpi.payment.getPaymentModeRoutes({
+      amount: context.shipments.breakup_values?.raw?.total * 100,
       cartId: cart_id,
       pincode: "395008",
-      checkoutMode: 'self',
+      checkoutMode: "self",
     });
     context.setshowShipment(false);
     context.setshowPayment(true);

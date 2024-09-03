@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useGlobalStore } from "fdk-core/utils";
-const useProductDescription = (fpi, slug) => {
+import { useGlobalStore, useFPI } from "fdk-core/utils";
+const useProductDescription = (slug) => {
+  const fpi = useFPI();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [currentPincode, setCurrentPincode] = useState("");
   const [currentSizeIndex, setCurrentSizeIndex] = useState();
@@ -17,7 +18,6 @@ const useProductDescription = (fpi, slug) => {
   const { loading: productDetailsLoading } = product_details || {};
   const { loading: productPriceBySlugLoading } = product_price_by_slug || {};
 
-
   const isLoading =
     productMetaLoading ||
     productVariantsLoading ||
@@ -25,8 +25,8 @@ const useProductDescription = (fpi, slug) => {
     productPriceBySlugLoading ||
     false;
   useEffect(() => {
-    fpi.product.fetchProductBySlug({ slug });
-    fpi.product.fetchProductMeta({ slug: slug });
+    fpi.catalog.fetchProductBySlug({ slug });
+    fpi.catalog.getProductSizesBySlug({ slug: slug });
   }, [slug]);
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const useProductDescription = (fpi, slug) => {
       if (currentPincode?.length === 6) {
         query.pincode = currentPincode;
       }
-      fpi.product.fetchProductPriceBySlug(query);
+      fpi.catalog.getProductPriceBySlug(query);
     }
   }, [currentSizeIndex, sizes]);
 
@@ -64,8 +64,8 @@ const useProductDescription = (fpi, slug) => {
           if (res?.type == "pincodeDetails/rejected") {
             seterrMsg(res?.payload);
           } else {
-            seterrMsg(null)
-            fpi.product.fetchProductPriceBySlug({
+            seterrMsg(null);
+            fpi.catalog.getProductPriceBySlug({
               slug,
               size: sizes[currentSizeIndex]?.value,
               pincode: currentPincode?.length === 6 ? currentPincode : null,

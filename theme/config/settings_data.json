@@ -2,64 +2,6 @@
   "list": [
     {
       "name": "Default",
-      "page": [
-        {
-          "settings": {
-            "props": {
-              "reviews": false,
-              "add_to_compare": false,
-              "product_request": false,
-              "store_selection": true,
-              "compare_products": false,
-              "variants": true,
-              "ratings": false,
-              "similar_products": true,
-              "bulk_prices": false
-            }
-          },
-          "page": "product-description"
-        },
-        {
-          "settings": {
-            "props": {
-              "show_info_message": true,
-              "gst": false,
-              "staff_selection": true,
-              "enable_customer": false,
-              "enable_guest": false
-            }
-          },
-          "page": "cart-landing"
-        },
-        {
-          "page": "brands",
-          "settings": {
-            "props": {
-              "title": "Brands Landing",
-              "logo_only": true,
-              "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-            }
-          }
-        },
-        {
-          "page": "product-listing",
-          "settings": {
-            "props": {
-              "hide_brand": true,
-              "infinite_scroll": false
-            }
-          }
-        },
-        {
-          "page": "collection-listing",
-          "settings": {
-            "props": {
-              "infinite_scroll": false,
-              "description": "Hello"
-            }
-          }
-        }
-      ],
       "global_config": {
         "static": {
           "props": {
@@ -73,7 +15,7 @@
             },
             "auth": {
               "show_header_auth": true,
-              "show_footer_auth": true
+              "show_footer_auth": false
             },
             "palette": {
               "general_setting": {
@@ -135,6 +77,10 @@
               "header_bottom": [],
               "footer_top": [],
               "footer_bottom": []
+            },
+            "order_tracking": {
+              "show_header": false,
+              "show_footer": true
             }
           }
         },
@@ -159,89 +105,101 @@
               "variants": {
                 "light": {
                   "name": "300",
-                  "file": "https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvUDQZNLo_U2r.ttf"
+                  "file": "https://fonts.gstatic.com/s/aronesans/v4/TUZezwhrmbFp0Srr_tH6fv6RcUejHO_u7GF5aXfv-U2QzBLF6gslWn_9DW03no5mBF4.ttf"
                 },
                 "regular": {
                   "name": "regular",
-                  "file": "https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvUDQZNLo_U2r.ttf"
+                  "file": "https://fonts.gstatic.com/s/aronesans/v4/TUZezwhrmbFp0Srr_tH6fv6RcUejHO_u7GF5aXfv-U2QzBLF6gslWn_9DW03no5mBF4.ttf"
                 },
                 "medium": {
                   "name": "500",
-                  "file": "https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKd3vUDQZNLo_U2r.ttf"
+                  "file": "https://fonts.gstatic.com/s/aronesans/v4/TUZezwhrmbFp0Srr_tH6fv6RcUejHO_u7GF5aXfv-U2QzBLF6gslWk39DW03no5mBF4.ttf"
                 },
                 "semi_bold": {
                   "name": "600",
-                  "file": "https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKebukDQZNLo_U2r.ttf"
+                  "file": "https://fonts.gstatic.com/s/aronesans/v4/TUZezwhrmbFp0Srr_tH6fv6RcUejHO_u7GF5aXfv-U2QzBLF6gslWqH6DW03no5mBF4.ttf"
                 },
                 "bold": {
                   "name": "700",
-                  "file": "https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKeiukDQZNLo_U2r.ttf"
+                  "file": "https://fonts.gstatic.com/s/aronesans/v4/TUZezwhrmbFp0Srr_tH6fv6RcUejHO_u7GF5aXfv-U2QzBLF6gslWpj6DW03no5mBF4.ttf"
                 }
               },
-              "family": "Playfair Display"
+              "family": "AR One Sans"
             },
             "font_body": {
               "variants": {
                 "light": {
                   "name": "300",
-                  "file": "https://fonts.gstatic.com/s/worksans/v18/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32KxfXNigDp6_cOyA.ttf"
+                  "file": "https://fonts.gstatic.com/s/abel/v18/MwQ5bhbm2POE6VhLPJp6qGI.ttf"
                 },
                 "regular": {
                   "name": "regular",
-                  "file": "https://fonts.gstatic.com/s/worksans/v18/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K0nXNigDp6_cOyA.ttf"
+                  "file": "https://fonts.gstatic.com/s/abel/v18/MwQ5bhbm2POE6VhLPJp6qGI.ttf"
                 },
                 "medium": {
                   "name": "500",
-                  "file": "https://fonts.gstatic.com/s/worksans/v18/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K3vXNigDp6_cOyA.ttf"
+                  "file": "https://fonts.gstatic.com/s/abel/v18/MwQ5bhbm2POE6VhLPJp6qGI.ttf"
                 },
                 "semi_bold": {
                   "name": "600",
-                  "file": "https://fonts.gstatic.com/s/worksans/v18/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K5fQNigDp6_cOyA.ttf"
+                  "file": "https://fonts.gstatic.com/s/abel/v18/MwQ5bhbm2POE6VhLPJp6qGI.ttf"
                 },
                 "bold": {
                   "name": "700",
-                  "file": "https://fonts.gstatic.com/s/worksans/v18/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K67QNigDp6_cOyA.ttf"
+                  "file": "https://fonts.gstatic.com/s/abel/v18/MwQ5bhbm2POE6VhLPJp6qGI.ttf"
                 }
               },
-              "family": "Work Sans"
+              "family": "Abel"
             },
             "section_margin_bottom": 16
           }
         }
-      }
+      },
+      "page": [
+        {
+          "page": "meet-don",
+          "settings": {
+            "props": {
+              "header": false,
+              "footer": true
+            }
+          }
+        },
+        {
+          "page": "home",
+          "settings": {
+            "props": {
+              "code": "<h1>\npratik hdhej,hedjwk\n</h1>",
+              "extension": {
+                "below_price_component": [
+                  {
+                    "extension_id": "63ae7daa973c4705295bad45",
+                    "extension_name": "Algolia partner panel submit asma",
+                    "config": {
+                      "extension_config_id": "6683cf01f834109f0f4c134f",
+                      "extension_id": "63ae7daa973c4705295bad45",
+                      "organization_id": "63ae7cf9973c470a2b5bad3e"
+                    },
+                    "template": {
+                      "slug": "",
+                      "display": "test",
+                      "restrict_page": [],
+                      "wrapper": "wqedsfdgfh",
+                      "_id": "6683cf01f834109f0f4c1350"
+                    }
+                  }
+                ],
+                "above_price_breakup": [],
+                "below_product_info": [],
+                "product_description_bottom": []
+              }
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Dark",
-      "page": [
-        {
-          "settings": {
-            "props": {
-              "reviews": false,
-              "add_to_compare": false,
-              "product_request": false,
-              "store_selection": true,
-              "compare_products": false,
-              "variants": true,
-              "ratings": false,
-              "similar_products": true,
-              "bulk_prices": false
-            }
-          },
-          "page": "product-description"
-        },
-        {
-          "settings": {
-            "props": {
-              "show_info_message": true,
-              "gst": false,
-              "staff_selection": false,
-              "enable_customer": false,
-              "enable_guest": false
-            }
-          },
-          "page": "cart-landing"
-        }
-      ],
       "global_config": {
         "static": {
           "props": {
@@ -317,46 +275,21 @@
               "header_bottom": [],
               "footer_top": [],
               "footer_bottom": []
+            },
+            "order_tracking": {
+              "show_header": true,
+              "show_footer": true
             }
           }
         },
         "custom": {
           "props": {}
         }
-      }
+      },
+      "page": []
     },
     {
       "name": "Blue",
-      "page": [
-        {
-          "settings": {
-            "props": {
-              "reviews": false,
-              "add_to_compare": false,
-              "product_request": false,
-              "store_selection": true,
-              "compare_products": false,
-              "variants": true,
-              "ratings": false,
-              "similar_products": true,
-              "bulk_prices": false
-            }
-          },
-          "page": "product-description"
-        },
-        {
-          "settings": {
-            "props": {
-              "show_info_message": true,
-              "gst": false,
-              "staff_selection": false,
-              "enable_customer": false,
-              "enable_guest": false
-            }
-          },
-          "page": "cart-landing"
-        }
-      ],
       "global_config": {
         "static": {
           "props": {
@@ -432,13 +365,18 @@
               "header_bottom": [],
               "footer_top": [],
               "footer_bottom": []
+            },
+            "order_tracking": {
+              "show_header": true,
+              "show_footer": true
             }
           }
         },
         "custom": {
           "props": {}
         }
-      }
+      },
+      "page": []
     }
   ],
   "current": "Default",
@@ -447,45 +385,36 @@
       {
         "sections": [
           {
-              "label": "",
-              "blocks": [],
-              "source": "themeBundle",
-              "predicate": {
-                  "screen": {
-                      "mobile": true,
-                      "desktop": true,
-                      "tablet": true
-                  },
-                  "user": {
-                      "authenticated": true,
-                      "anonymous": true
-                  },
-                  "route": {
-                      "selected": "none",
-                      "exact_url": ""
-                  }
+            "label": "",
+            "blocks": [],
+            "source": "themeBundle",
+            "predicate": {
+              "screen": {
+                "mobile": true,
+                "desktop": true,
+                "tablet": true
               },
-              "name": "raw-html",
-              "props": {
-                  "code": {
-                      "type": "code",
-                      "value": "<h1>\n  Welcome to skyfire\n</h1>"
-                  }
+              "user": {
+                "authenticated": true,
+                "anonymous": true
               },
-              "preset": {}
+              "route": {
+                "selected": "none",
+                "exact_url": ""
+              }
+            },
+            "name": "raw-html",
+            "props": {
+              "code": {
+                "type": "code",
+                "value": "<h1>\n  Welcome to skyfire\n</h1>"
+              }
+            },
+            "preset": {}
           }
-      ],
+        ],
         "value": "home"
       }
-    ]
-  },
-  "information": {
-    "features": [
-      "10 stunning configurable sections",
-      "Revamped Cart and Checkout",
-      "Dual configurable font",
-      "Easily configurable colors",
-      "Faster Page Loading"
     ]
   }
 }

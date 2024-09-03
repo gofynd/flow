@@ -3,7 +3,6 @@ import { useGlobalStore } from "fdk-core/utils";
 import { useSearchParams } from "react-router-dom";
 import { useSingleContext } from "../single-page-context";
 
-
 const useSingleAddress = () => {
   const { fpi, setisopenmodal, setmodaltitle } = useSingleContext();
 
@@ -12,18 +11,15 @@ const useSingleAddress = () => {
   // const addressId = searchParams.get('address_id');
 
   let allAddress = ADDRESS?.address;
-  let addressLoading =ADDRESS?.loading
-
+  let addressLoading = ADDRESS?.loading;
 
   // let selectedAddress= allAddress?.filter((item)=>item.id==addressId)
 
-  const editAddress = () => {
-
-  };
+  const editAddress = () => {};
 
   return {
     allAddress: allAddress,
-    addressLoading:addressLoading
+    addressLoading: addressLoading,
     // selectedAddress:selectedAddress
   };
 };

@@ -1,11 +1,12 @@
-import FPIClient from "fdk-store";
 import React, { useState } from "react";
 import { validateEmailField } from "../../helper/utils";
 import LoginContainer from "./login-container";
 import styles from "./forget-password.less";
 import { useSearchParams, useNavigate } from "react-router-dom";
+import { useFPI } from "fdk-core/utils";
 
-function ForgetPassword({ fpi }) {
+function ForgetPassword() {
+  const fpi = useFPI();
   const [searchParams] = useSearchParams();
   const query = new URLSearchParams(searchParams);
   const [resetMobileEmail, setresetMobileEmail] = useState("");
@@ -16,7 +17,6 @@ function ForgetPassword({ fpi }) {
   const [isEmailNotExist, setisEmailNotExist] = useState(false);
   const [emailErrorMsg, setemailErrorMsg] = useState("");
   const navigate = useNavigate();
-
 
   const forgotPasswordSubmitBtnClick = () => {
     if (isShowResetButton) {
@@ -33,7 +33,7 @@ function ForgetPassword({ fpi }) {
             } else {
               setisSendResetPasswordSuccess(false);
               setisEmailNotExist(true);
-              setemailErrorMsg( res.error.message);
+              setemailErrorMsg(res.error.message);
             }
           });
       }
@@ -56,7 +56,6 @@ function ForgetPassword({ fpi }) {
     const newURL = `/auth/login?${currentQueryParams}`;
 
     navigate(newURL);
-
   }
 
   return (
